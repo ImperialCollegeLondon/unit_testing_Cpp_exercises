@@ -5,6 +5,12 @@
 In order to run the examples in this repository, you need a C++ compiler (supporting
 C++14 or newer) and CMake (version 3.11 or newer).
 
+For this course, we will be using [GoogleTest], a popular and easy-to-use testing
+framework. If you compile your code against the GoogleTest libraries, you will have a
+test executable, which when run will execute your tests. CMake provides a convenient
+tool called [CTest] for executing your project's tests (with whatever framework you are
+using in a convenient manner), which also integrates with a variety of IDEs (see below).
+
 On Ubuntu, you can install your dependencies like this:
 
 ```sh
@@ -54,9 +60,6 @@ cd build
 ctest
 ```
 
-[CTest]:
-    https://cmake.org/cmake/help/book/mastering-cmake/chapter/Testing%20With%20CMake%20and%20CTest.html
-
 ## Building and testing projects with an IDE
 
 Nowadays, many popular IDEs, including Visual Studio and Visual Studio Code, provide
@@ -64,5 +67,8 @@ built-in support for CMake and CTest and will automatically configure your proje
 CMakeLists.txt file is discovered in its root. For Visual Studio Code, you will need the
 [CMake extension] installed.
 
+[GoogleTest]: https://google.github.io/googletest/
+[CTest]:
+    https://cmake.org/cmake/help/book/mastering-cmake/chapter/Testing%20With%20CMake%20and%20CTest.html
 [CMake extension]:
     https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools
