@@ -45,7 +45,7 @@ jobs:
 
       - name: Install dependencies (macOS)
         if: matrix.os == 'macos-latest'
-        run: brew install cmake ninja
+        run: brew install ninja
 
       - name: Build all projects
         run: |
