@@ -11,8 +11,16 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Enable compiler warnings and standard conformance
 if(MSVC)
     add_compile_options(/W4 /permissive-)
+
+    if(WARNINGS_AS_ERRORS)
+        add_compile_options(/WX)
+    endif()
 else()
     add_compile_options(-Wall -Wextra -Wpedantic)
+
+    if(WARNINGS_AS_ERRORS)
+        add_compile_options(-Werror)
+    endif()
 endif()
 
 enable_testing()

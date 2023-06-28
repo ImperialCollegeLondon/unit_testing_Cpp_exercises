@@ -18,3 +18,39 @@ jobs:
         with:
           use-quiet-mode: "yes"
           use-verbose-mode: "yes"
+
+  build:
+    name: Build all projects
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install dependencies (Ubuntu)
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt update
+          sudo apt upgrade
+          sudo apt install build-essential cmake ninja
+
+      - name: Set up MSVC (Windows)
+        if: matrix.os == 'windows-latest'
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
+
+      - name: Install dependencies (macOS)
+        if: matrix.os == 'macos-latest'
+        run: brew install cmake ninja
+
+      - name: Build all projects
+        run: |
+          # Configure: Use Ninja as build backend
+          cmake -B build -GNinja -DWARNINGS_AS_ERRORS=ON
+
+          # Build projects
+          cmake --build build
