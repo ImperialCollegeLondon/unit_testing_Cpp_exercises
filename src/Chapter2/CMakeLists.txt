@@ -6,7 +6,7 @@ add_executable(${PROJECT_NAME}_program program.cpp fibonacci.cpp)
 add_executable(${PROJECT_NAME}_test test.cpp fibonacci.cpp)
 target_link_libraries(
     ${PROJECT_NAME}_test
-    GTest::gtest_main
+    GTest::gtest
 )
 
 include(GoogleTest)
