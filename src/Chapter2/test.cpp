@@ -1,4 +1,4 @@
-#include "fibonacci.hpp"
+#include "fibonacci.h"
 #include "gtest/gtest.h"
 #include <iostream>
 

@@ -1,4 +1,4 @@
-#include "fibonacci.hpp"
+#include "fibonacci.h"
 
 // Returns the n-th term of the Fibonacci sequence.
 int recursive_fibonacci(int n)
