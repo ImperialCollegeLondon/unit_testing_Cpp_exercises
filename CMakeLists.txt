@@ -3,6 +3,7 @@ project(UnitTestingCppExercises)
 include(cmake/UnitTestingCourseCommon.cmake)
 
 # Add examples
+add_subdirectory(src/Chapter1)
 add_subdirectory(src/Chapter2)
 add_subdirectory(src/Chapter3)
 add_subdirectory(src/Chapter4)
