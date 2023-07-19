@@ -8,3 +8,4 @@ add_subdirectory(src/Chapter3)
 
 # Add solutions to exercises
 add_subdirectory(src/Chapter2/Exercise_solutions)
+add_subdirectory(src/Chapter3/Exercise_solutions)
