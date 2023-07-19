@@ -22,5 +22,5 @@ class EmployeeTable
     bool isEmpty() const;
 
     // Function to get the number of entries in the table.
-    int getEntryCount() const;
+    size_t getEntryCount() const;
 };

@@ -36,7 +36,7 @@ bool EmployeeTable::isEmpty() const
     return employees.empty();
 }
 
-int EmployeeTable::getEntryCount() const
+size_t EmployeeTable::getEntryCount() const
 {
     return employees.size();
 }
