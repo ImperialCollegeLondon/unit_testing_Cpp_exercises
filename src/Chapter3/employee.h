@@ -1,5 +1,4 @@
-#ifndef employee_h
-#define employee_h
+#pragma once
 
 #include <iostream>
 #include <stdexcept>
@@ -53,5 +52,3 @@ class Employee
     // Destructor
     ~Employee();
 };
-
-#endif /* employee_h */

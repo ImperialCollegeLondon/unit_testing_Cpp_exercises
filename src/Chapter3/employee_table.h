@@ -1,6 +1,4 @@
-#ifndef employee_table_h
-#define employee_table_h
-
+#pragma once
 #include "employee.h"
 #include <sstream>
 #include <vector>
@@ -26,5 +24,3 @@ class EmployeeTable
     // Function to get the number of entries in the table.
     int getEntryCount() const;
 };
-
-#endif /* employee_table_h */
