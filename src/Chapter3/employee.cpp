@@ -53,7 +53,7 @@ void Employee::setNumberYearsEmployed(double employeeNumberYearsEmployed)
     calcNetSalary();
 }
 
-void Employee::SetBasicBonus(double employeeBonus)
+void Employee::setBasicBonus(double employeeBonus)
 {
     basic_bonus = employeeBonus;
 

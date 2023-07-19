@@ -61,7 +61,7 @@ TEST_P(EmployeeTestParameterisedFixture, TaxCalculationIsCorrect)
 {
     TestValues current_test_case_value = GetParam();
     employee.setBaseSalary(current_test_case_value.inp_salary);
-    employee.SetBasicBonus(current_test_case_value.inp_bonus);
+    employee.setBasicBonus(current_test_case_value.inp_bonus);
     employee.setNumberYearsEmployed(current_test_case_value.inp_years_employed);
     EXPECT_EQ(employee.getTaxAmount(), current_test_case_value.out_tax);
 }

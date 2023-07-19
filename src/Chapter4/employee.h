@@ -31,7 +31,7 @@ class Employee
     void setAge(float employee_age);
     void setBaseSalary(double employeeSalary);
     void setNumberYearsEmployed(double employeeNumberYearsEmployed);
-    void SetBasicBonus(double employeeBonus);
+    void setBasicBonus(double employeeBonus);
 
     void calcNetBonus();  // To calculate net bonus while considering experience.
     void calcTaxAmount(); // To calculate tax to be paid based on salary with bonus
