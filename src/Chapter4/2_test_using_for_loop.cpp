@@ -13,7 +13,7 @@ TEST_F(EmployeeTestFixture, NetBonusIsCorrectForDifferentYears)
 {
     auto input = std::vector<int>{5, 15};
     auto expected_output = std::vector<int>{2000, 3000};
-    for (int i = 0; i < input.size(); i++)
+    for (size_t i = 0; i < input.size(); i++)
     {
         employee.setNumberYearsEmployed(input[i]);
         EXPECT_EQ(employee.getNetBonus(), expected_output[i]);
