@@ -1,6 +1,5 @@
 #include "fibonacci.h"
 #include "gtest/gtest.h"
-#include <iostream>
 
 TEST(FibonacciTest, HandlesZeroInput)
 {
