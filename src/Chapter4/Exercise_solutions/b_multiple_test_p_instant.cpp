@@ -55,7 +55,7 @@ TEST_P(ParameterizedTest, TestMultiply)
     int b = GetParam().second;
 
     // Call your normal function
-    int result = Multiply(a, b);
+    double result = Multiply(a, b);
 
     // Perform assertion
     ASSERT_EQ(a * b, result);
