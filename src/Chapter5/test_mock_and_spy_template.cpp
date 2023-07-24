@@ -2,11 +2,10 @@
 #include "gtest/gtest.h"
 #include <iostream>
 
-template <class GenericHorse> bool isAliveAtEndOfDay(int steps, double carbs, GenericHorse *animal)
-{
+template <class GenericHorse>
+bool isAliveAtEndOfDay(int steps, double carbs, GenericHorse *animal) {
     double spent_carbs{animal->walk(steps)};
-    if (spent_carbs > carbs)
-    {
+    if (spent_carbs > carbs) {
         animal->die();
         return false;
     }
@@ -14,16 +13,14 @@ template <class GenericHorse> bool isAliveAtEndOfDay(int steps, double carbs, Ge
     return true;
 };
 
-class MockHorse
-{
+class MockHorse {
   public:
     MOCK_METHOD(double, walk, (int));
     MOCK_METHOD(void, eat, (double));
     MOCK_METHOD(void, die, ());
 };
 
-TEST(IsAliveTestTemplate, Lives)
-{
+TEST(IsAliveTestTemplate, Lives) {
     MockHorse animal;
     int steps{400};
     double carbs{2000.0};
@@ -35,8 +32,7 @@ TEST(IsAliveTestTemplate, Lives)
     ASSERT_TRUE(isAliveAtEndOfDay<MockHorse>(steps, carbs, &animal));
 };
 
-TEST(IsAliveTestTemplate, Dies)
-{
+TEST(IsAliveTestTemplate, Dies) {
     MockHorse animal;
     int steps{400};
     double carbs{2000.0};

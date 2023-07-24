@@ -1,20 +1,15 @@
 #include <iostream>
 
 /*Returns the n'th term of the Fibonacci sequence.*/
-int recursive_fibonacci(int n)
-{
-    if (n <= 1)
-    {
+int recursive_fibonacci(int n) {
+    if (n <= 1) {
         return n;
-    }
-    else
-    {
+    } else {
         return recursive_fibonacci(n - 1) + recursive_fibonacci(n - 2);
     }
 }
 
-int main()
-{
+int main() {
     // Manual tests
     // Case 1: When n is 0 or 1
     int n = 0;

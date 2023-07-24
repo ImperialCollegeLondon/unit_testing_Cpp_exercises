@@ -2,8 +2,7 @@
 #include "gtest/gtest.h"
 #include <iostream>
 
-class Animal
-{
+class Animal {
   public:
     virtual ~Animal() = default;
     virtual double walk(int steps) = 0;
@@ -11,11 +10,9 @@ class Animal
     virtual void die() = 0;
 };
 
-bool isAliveAtEndOfDay(int steps, double carbs, Animal *animal)
-{
+bool isAliveAtEndOfDay(int steps, double carbs, Animal *animal) {
     double spent_carbs{animal->walk(steps)};
-    if (spent_carbs > carbs)
-    {
+    if (spent_carbs > carbs) {
         animal->die();
         return false;
     }
@@ -23,16 +20,14 @@ bool isAliveAtEndOfDay(int steps, double carbs, Animal *animal)
     return true;
 };
 
-class MockAnimal : public Animal
-{
+class MockAnimal : public Animal {
   public:
     MOCK_METHOD(double, walk, (int), (override));
     MOCK_METHOD(void, eat, (double), (override));
     MOCK_METHOD(void, die, (), (override));
 };
 
-TEST(IsAliveTestVirtual, Lives)
-{
+TEST(IsAliveTestVirtual, Lives) {
     MockAnimal animal;
     int steps{400};
     double carbs{2000.0};
@@ -44,8 +39,7 @@ TEST(IsAliveTestVirtual, Lives)
     ASSERT_TRUE(isAliveAtEndOfDay(steps, carbs, &animal));
 };
 
-TEST(IsAliveTestVirtual, Dies)
-{
+TEST(IsAliveTestVirtual, Dies) {
     MockAnimal animal;
     int steps{400};
     double carbs{2000.0};

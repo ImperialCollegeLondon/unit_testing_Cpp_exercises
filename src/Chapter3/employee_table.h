@@ -3,8 +3,7 @@
 #include <sstream>
 #include <vector>
 
-class EmployeeTable
-{
+class EmployeeTable {
   private:
     std::vector<Employee> employees;
 

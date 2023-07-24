@@ -1,28 +1,24 @@
 #include "employee_table.h"
 #include <gtest/gtest.h>
 
-class EmployeeTableWithOneEmployee : public testing::Test
-{
+class EmployeeTableWithOneEmployee : public testing::Test {
   public:
     EmployeeTable table;
     Employee *employee;
 
-    void SetUp() override
-    {
+    void SetUp() override {
         employee = new Employee("John Doe", 30, 5000, 5, 1000);
         table.addEmployee(*employee);
     }
 
-    void TearDown() override
-    {
+    void TearDown() override {
         delete employee;
         employee = nullptr;
     }
 };
 
 // Check the display function work correctly.
-TEST_F(EmployeeTableWithOneEmployee, DisplayFunctionWorksCorrectly)
-{
+TEST_F(EmployeeTableWithOneEmployee, DisplayFunctionWorksCorrectly) {
 
     // STEP 1: ARRANGE
     std::stringstream s_input;

@@ -3,14 +3,12 @@
 #include "gtest/gtest.h"
 #include <iostream>
 
-class MockEmployee
-{
+class MockEmployee {
   public:
     MOCK_METHOD(void, setIncreasedBasicBonus, (double));
 };
 
-TEST(EmployeeTableTest, SetBasicBonusForEveryone)
-{
+TEST(EmployeeTableTest, SetBasicBonusForEveryone) {
     EmployeeTable<MockEmployee> table;
     double newBonus{2000};
 
