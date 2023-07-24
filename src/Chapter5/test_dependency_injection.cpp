@@ -8,7 +8,7 @@
 double calculate_norm(const std::vector<double> &array)
 {
     double output{0};
-    for (int i{0}; i < array.size(); ++i)
+    for (size_t i{0}; i < array.size(); ++i)
     {
         output += array[i] * array[i];
     }
@@ -18,7 +18,7 @@ double calculate_norm(const std::vector<double> &array)
 /// @brief Just a stub, so we can get a simple value to test things with.
 /// @param array The vector to calculate the norm for.
 /// @return The norm, a dummy value in this case.
-double norm_stub(const std::vector<double> &array)
+double norm_stub(const std::vector<double> & /*array*/)
 {
     return 10.0;
 }
@@ -31,7 +31,7 @@ std::vector<double> normalize_v1(const std::vector<double> &array)
     double norm{calculate_norm(array)};
     std::vector<double> output;
 
-    for (int i{0}; i < array.size(); ++i)
+    for (size_t i{0}; i < array.size(); ++i)
     {
         output.push_back(array[i] / norm);
     }
@@ -49,7 +49,7 @@ std::vector<double> normalize_v2(
     double norm{func(array)};
     std::vector<double> output;
 
-    for (int i{0}; i < array.size(); ++i)
+    for (size_t i{0}; i < array.size(); ++i)
     {
         output.push_back(array[i] / norm);
     }
@@ -65,7 +65,7 @@ TEST(NormalizeTest, WithoutDependencyInjection)
     double factor{calculate_norm(input)};
     std::vector<double> output = normalize_v1(input);
 
-    for (int i{0}; i < input.size(); ++i)
+    for (size_t i{0}; i < input.size(); ++i)
     {
         EXPECT_EQ(output[i], input[i] / factor);
     }
@@ -79,7 +79,7 @@ TEST(NormalizeTest, WithDependencyInjection)
     double factor{norm_stub(input)};
     std::vector<double> output = normalize_v2(input, norm_stub);
 
-    for (int i{0}; i < input.size(); ++i)
+    for (size_t i{0}; i < input.size(); ++i)
     {
         EXPECT_EQ(output[i], input[i] / factor);
     }
