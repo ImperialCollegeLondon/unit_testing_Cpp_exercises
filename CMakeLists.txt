@@ -7,6 +7,7 @@ add_subdirectory(src/Chapter1)
 add_subdirectory(src/Chapter2)
 add_subdirectory(src/Chapter3)
 add_subdirectory(src/Chapter4)
+add_subdirectory(src/Chapter5)
 
 # Add solutions to exercises
 add_subdirectory(src/Chapter2/Exercise_solutions)
