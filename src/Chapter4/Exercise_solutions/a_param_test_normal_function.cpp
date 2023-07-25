@@ -30,6 +30,3 @@ int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
-
-// Compilation command:
-// g++ a_param_test_normal_function.cpp -lgtest -lgtest_main -lpthread -o param_test_normal_function

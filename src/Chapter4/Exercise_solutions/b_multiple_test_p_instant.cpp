@@ -84,6 +84,3 @@ int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
-
-// Compilation command:
-//  g++ b_multiple_test_p_instant.cpp -lgtest -lpthread

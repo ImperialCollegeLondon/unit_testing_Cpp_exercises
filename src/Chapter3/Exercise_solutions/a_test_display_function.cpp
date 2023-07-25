@@ -41,7 +41,3 @@ TEST_F(EmployeeTableWithOneEmployee, DisplayFunctionWorksCorrectly) {
     // STEP 3: ASSERT
     EXPECT_EQ(s_input.str(), expected_output);
 }
-
-// Compilation command when using g++ compiler:
-// g++ a_test_display_function.cpp employee.cpp employee_table.cpp  -lgtest -lgtest_main -lpthread
-// -o test
