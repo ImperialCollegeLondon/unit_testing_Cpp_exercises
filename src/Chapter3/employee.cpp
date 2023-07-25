@@ -87,7 +87,7 @@ void Employee::calcNetSalary() {
     netSalary_ = baseSalary_ + netBonus_ - taxAmount_;
 }
 
-std::string Employee::getName() const {
+const std::string &Employee::getName() const {
     return name_;
 }
 

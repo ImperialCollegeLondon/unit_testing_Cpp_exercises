@@ -34,7 +34,7 @@ class Employee {
     void calcNetSalary(); // To calculate net salary after adjusting tax and bonus.
 
     // Getter functions.
-    std::string getName() const;
+    const std::string &getName() const;
     unsigned int getAge() const;
     double getBasicSalary() const;
     unsigned int getNumberYearsEmployed() const;
