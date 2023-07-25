@@ -131,7 +131,3 @@ void Employee::displayInfo() const {
     std::cout << "Tax to be paid: £" << taxAmount_ << std::endl;
     std::cout << "Net_Salary: £" << netSalary_ << std::endl;
 }
-
-// Destructor
-Employee::~Employee() {
-}

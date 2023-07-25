@@ -44,7 +44,4 @@ class Employee {
     double getNetSalary() const;
 
     void displayInfo() const;
-
-    // Destructor
-    ~Employee();
 };
