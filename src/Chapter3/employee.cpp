@@ -15,7 +15,7 @@ Employee::Employee(const std::string &name, unsigned int age, double baseSalary,
 }
 
 void Employee::setName(const std::string &name) {
-    if (name == "") {
+    if (name.empty()) {
         throw std::invalid_argument("Name cannot be empty");
     }
     name_ = name;
