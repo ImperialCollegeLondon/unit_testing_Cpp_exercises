@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 
 // Define your function to be tested here.
-int Sum(int a, int b) {
+int sum(int a, int b) {
     return a + b;
 }
 
@@ -15,7 +15,7 @@ TEST_P(ParameterizedTest, TestSum) {
     int b = GetParam().second;
 
     // Call your normal function
-    int result = Sum(a, b);
+    int result = sum(a, b);
 
     // Perform assertion
     ASSERT_EQ(a + b, result);

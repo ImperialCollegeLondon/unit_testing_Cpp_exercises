@@ -1,17 +1,17 @@
 #include <gtest/gtest.h>
 
 // Define your function to be tested here.
-int Sum(int a, int b) {
+int sum(int a, int b) {
     return a + b;
 }
 
 // function to multiply two numbers
-double Multiply(double a, double b) {
+double multiply(double a, double b) {
     return a * b;
 }
 
 // Function to calculate a raised to the power of b (integer) without using pow function
-double Power(double a, int b) {
+double power(double a, int b) {
     double result = 1;
     for (int i = 0; i < b; i++) {
         result *= a;
@@ -29,7 +29,7 @@ TEST_P(ParameterizedTest, TestSum) {
     int b = GetParam().second;
 
     // Call your normal function
-    int result = Sum(a, b);
+    int result = sum(a, b);
 
     // Perform assertion
     ASSERT_EQ(a + b, result);
@@ -47,7 +47,7 @@ TEST_P(ParameterizedTest, TestMultiply) {
     int b = GetParam().second;
 
     // Call your normal function
-    double result = Multiply(a, b);
+    double result = multiply(a, b);
 
     // Perform assertion
     ASSERT_EQ(a * b, result);
@@ -67,7 +67,7 @@ TEST_P(ParameterizedTest_Power, TestPowerFun) {
     // auto [a, b, answer] = GetParam();
 
     // Call your normal function
-    double result = Power(a, b);
+    double result = power(a, b);
 
     // Perform assertion (Since floating point values are being compared, use `ASSERT_DOUBLE_EQ`).
     // For more details, please see:-
