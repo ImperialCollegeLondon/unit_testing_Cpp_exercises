@@ -1,6 +1,10 @@
 name: CI
 
-on: [push, pull_request, release]
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   qa:
@@ -54,3 +58,7 @@ jobs:
 
           # Build projects
           cmake --build build
+
+      - name: Run tests
+        working-directory: build
+        run: ctest

@@ -1,11 +1,9 @@
-#include "fibonacci.hpp"
+#include "fibonacci.h"
 #include <iostream>
 #include <string>
 
-int main(int argc, char **argv)
-{
-    if (argc < 2)
-    {
+int main(int argc, char **argv) {
+    if (argc < 2) {
         std::cout << "Error: Must provide an integer as an argument\n";
         return 1;
     }

@@ -13,8 +13,8 @@ TEST(FibonacciTest, HandlesPositiveInput) {
     EXPECT_EQ(recursive_fibonacci(5), 5);
 }
 
-TEST(FibonacciTest, HandlesNegativeInput) {
-    EXPECT_EQ(recursive_fibonacci(-3), -3);
+TEST(FibonacciTest, ThrowsExceptionNegativeInput) {
+    EXPECT_THROW(recursive_fibonacci(-3), std::invalid_argument);
 }
 
 int main(int argc, char **argv) {
