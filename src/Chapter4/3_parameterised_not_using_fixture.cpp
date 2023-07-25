@@ -5,10 +5,10 @@
 // This structure is used to inject values into the test.
 struct TestValues {
     unsigned int input;
-    int output;
+    double output;
 
     // constructor of values struct
-    TestValues(unsigned int in, int out) : input(in), output(out) {
+    TestValues(unsigned int in, double out) : input(in), output(out) {
     }
 };
 
@@ -26,7 +26,7 @@ TestValues values[] = {TestValues{5, 2000}, TestValues{15, 3000}};
 TEST_P(EmployeeTestParameterised, NetBonusIsCorrectForDifferentYears) {
     TestValues current_test_case_value = GetParam();
     employee.setNumberYearsEmployed(current_test_case_value.input);
-    EXPECT_EQ(employee.getNetBonus(), current_test_case_value.output);
+    EXPECT_DOUBLE_EQ(employee.getNetBonus(), current_test_case_value.output);
 }
 
 // Instantiate the test case with the values array.
