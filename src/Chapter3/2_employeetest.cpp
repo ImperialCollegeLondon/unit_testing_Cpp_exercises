@@ -26,10 +26,10 @@ TEST_F(EmployeeTestFixture, CanSetAge) {
 
 // Test that the tax calculation is correct.
 TEST_F(EmployeeTestFixture, TaxCalculationIsCorrect) {
-    EXPECT_EQ(employee.getTaxAmount(), 7500);
+    EXPECT_DOUBLE_EQ(employee.getTaxAmount(), 7500);
 }
 
 // Check that the net salary is correct.
 TEST_F(EmployeeTestFixture, NetSalaryIsCorrect) {
-    EXPECT_EQ(employee.getNetSalary(), 43500);
+    EXPECT_DOUBLE_EQ(employee.getNetSalary(), 43500);
 }

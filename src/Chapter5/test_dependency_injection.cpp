@@ -58,7 +58,7 @@ TEST(NormalizeTest, WithoutDependencyInjection) {
     std::vector<double> output = normalize_v1(input);
 
     for (size_t i{0}; i < input.size(); ++i) {
-        EXPECT_EQ(output[i], input[i] / factor);
+        EXPECT_DOUBLE_EQ(output[i], input[i] / factor);
     }
 }
 
@@ -70,6 +70,6 @@ TEST(NormalizeTest, WithDependencyInjection) {
     std::vector<double> output = normalize_v2(input, norm_stub);
 
     for (size_t i{0}; i < input.size(); ++i) {
-        EXPECT_EQ(output[i], input[i] / factor);
+        EXPECT_DOUBLE_EQ(output[i], input[i] / factor);
     }
 }
