@@ -7,7 +7,7 @@
 class Employee {
   private:
     std::string name;
-    float age;
+    unsigned int age;
     double base_salary; // salary before calculating tax and adjusting bonus.
     double number_years_employed;
 
@@ -19,12 +19,12 @@ class Employee {
 
   public:
     // Constructor.
-    Employee(const std::string &employee_name, float employee_age, double employeeSalary,
+    Employee(const std::string &employee_name, unsigned int employee_age, double employeeSalary,
              double employeeNumberYearsEmployed, double employeeBonus);
 
     // Public member functions to set values.
     void setName(const std::string &employee_name);
-    void setAge(float employee_age);
+    void setAge(unsigned int employee_age);
     void setBaseSalary(double employeeSalary);
     void setNumberYearsEmployed(double employeeNumberYearsEmployed);
     void setBasicBonus(double employeeBonus);
@@ -35,7 +35,7 @@ class Employee {
 
     // Getter functions.
     std::string getName() const;
-    float getAge() const;
+    unsigned int getAge() const;
     double getBasicSalary() const;
     double getNumberYearsEmployed() const;
     double getBasicBonus() const;

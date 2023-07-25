@@ -5,8 +5,8 @@
 const double extra_bonus = 1000.0;
 const int years_exp_for_extra_bonus = 10;
 
-Employee::Employee(const std::string &employee_name, float employee_age, double employeeSalary,
-                   double employeeNumberYearsEmployed, double employeeBonus)
+Employee::Employee(const std::string &employee_name, unsigned int employee_age,
+                   double employeeSalary, double employeeNumberYearsEmployed, double employeeBonus)
     : age(employee_age), base_salary(employeeSalary),
       number_years_employed(employeeNumberYearsEmployed), basic_bonus(employeeBonus), net_bonus(0),
       tax_amount(0), net_salary(0) {
@@ -23,7 +23,7 @@ void Employee::setName(const std::string &employee_name) {
     name = employee_name;
 }
 
-void Employee::setAge(float employee_age) {
+void Employee::setAge(unsigned int employee_age) {
     age = employee_age;
 }
 
@@ -93,7 +93,7 @@ std::string Employee::getName() const {
     return name;
 }
 
-float Employee::getAge() const {
+unsigned int Employee::getAge() const {
     return age;
 }
 
