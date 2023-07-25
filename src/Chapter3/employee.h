@@ -4,9 +4,6 @@
 #include <stdexcept>
 #include <string>
 
-const double extra_bonus = 1000.0;
-const int years_exp_for_extra_bonus = 10;
-
 class Employee {
   private:
     std::string name;

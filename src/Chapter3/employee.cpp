@@ -2,6 +2,9 @@
 #include <iostream>
 #include <string>
 
+const double extra_bonus = 1000.0;
+const int years_exp_for_extra_bonus = 10;
+
 Employee::Employee(const std::string &employee_name, float employee_age, double employeeSalary,
                    double employeeNumberYearsEmployed, double employeeBonus)
     : age(employee_age), base_salary(employeeSalary),
