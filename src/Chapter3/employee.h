@@ -9,7 +9,7 @@ class Employee {
     std::string name;
     unsigned int age;
     double base_salary; // salary before calculating tax and adjusting bonus.
-    double number_years_employed;
+    unsigned int number_years_employed;
 
     double basic_bonus; // bonus for current year.
     double net_bonus;   // bonus after adjusting for experience.
@@ -20,13 +20,13 @@ class Employee {
   public:
     // Constructor.
     Employee(const std::string &employee_name, unsigned int employee_age, double employeeSalary,
-             double employeeNumberYearsEmployed, double employeeBonus);
+             unsigned int employeeNumberYearsEmployed, double employeeBonus);
 
     // Public member functions to set values.
     void setName(const std::string &employee_name);
     void setAge(unsigned int employee_age);
     void setBaseSalary(double employeeSalary);
-    void setNumberYearsEmployed(double employeeNumberYearsEmployed);
+    void setNumberYearsEmployed(unsigned int employeeNumberYearsEmployed);
     void setBasicBonus(double employeeBonus);
 
     void calcNetBonus();  // To calculate net bonus while considering experience.
@@ -37,7 +37,7 @@ class Employee {
     std::string getName() const;
     unsigned int getAge() const;
     double getBasicSalary() const;
-    double getNumberYearsEmployed() const;
+    unsigned int getNumberYearsEmployed() const;
     double getBasicBonus() const;
     double getNetBonus() const;
     double getTaxAmount() const;

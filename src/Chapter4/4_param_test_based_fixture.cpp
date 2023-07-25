@@ -29,11 +29,11 @@ TEST_F(EmployeeTestFixture, CanSetAge) {
 struct TestValues {
     double inp_salary;
     double inp_bonus;
-    double inp_years_employed;
+    unsigned int inp_years_employed;
     double out_tax;
 
     // constructor of values struct
-    TestValues(double salary, double bonus, double years_employed, double tax)
+    TestValues(double salary, double bonus, unsigned int years_employed, double tax)
         : inp_salary(salary), inp_bonus(bonus), inp_years_employed(years_employed), out_tax(tax) {
     }
 };

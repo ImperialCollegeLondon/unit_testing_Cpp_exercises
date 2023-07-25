@@ -4,11 +4,11 @@
 // Create a structure that holds the input and output values.
 // This structure is used to inject values into the test.
 struct TestValues {
-    int input;
+    unsigned int input;
     int output;
 
     // constructor of values struct
-    TestValues(int in, int out) : input(in), output(out) {
+    TestValues(unsigned int in, int out) : input(in), output(out) {
     }
 };
 

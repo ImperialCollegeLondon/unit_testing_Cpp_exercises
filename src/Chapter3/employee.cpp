@@ -6,7 +6,8 @@ const double extra_bonus = 1000.0;
 const int years_exp_for_extra_bonus = 10;
 
 Employee::Employee(const std::string &employee_name, unsigned int employee_age,
-                   double employeeSalary, double employeeNumberYearsEmployed, double employeeBonus)
+                   double employeeSalary, unsigned int employeeNumberYearsEmployed,
+                   double employeeBonus)
     : age(employee_age), base_salary(employeeSalary),
       number_years_employed(employeeNumberYearsEmployed), basic_bonus(employeeBonus), net_bonus(0),
       tax_amount(0), net_salary(0) {
@@ -37,7 +38,7 @@ void Employee::setBaseSalary(double employeeSalary) {
     calcNetSalary();
 }
 
-void Employee::setNumberYearsEmployed(double employeeNumberYearsEmployed) {
+void Employee::setNumberYearsEmployed(unsigned int employeeNumberYearsEmployed) {
     number_years_employed = employeeNumberYearsEmployed;
 
     // Changing number of years employed will change net bonus.
@@ -101,7 +102,7 @@ double Employee::getBasicSalary() const {
     return base_salary;
 }
 
-double Employee::getNumberYearsEmployed() const {
+unsigned int Employee::getNumberYearsEmployed() const {
     return number_years_employed;
 }
 
