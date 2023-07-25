@@ -5,13 +5,13 @@
 #include <vector>
 
 void EmployeeTable::addEmployee(const Employee &employee) {
-    employees.push_back(employee);
+    employees_.push_back(employee);
 }
 
-void EmployeeTable::removeEmployee(const std::string &employeeName) {
-    for (auto it = employees.begin(); it != employees.end(); ++it) {
-        if (it->getName() == employeeName) {
-            employees.erase(it);
+void EmployeeTable::removeEmployee(const std::string &name) {
+    for (auto it = employees_.begin(); it != employees_.end(); ++it) {
+        if (it->getName() == name) {
+            employees_.erase(it);
             break;
         }
     }
@@ -19,16 +19,16 @@ void EmployeeTable::removeEmployee(const std::string &employeeName) {
 
 void EmployeeTable::displayEmployeesName(std::ostream &output) const {
     output << "-------------------------------------------------- " << std::endl;
-    for (const auto &employee : employees) {
+    for (const auto &employee : employees_) {
         output << employee.getName() << std::endl;
     }
     output << "-------------------------------------------------- " << std::endl;
 }
 
 bool EmployeeTable::isEmpty() const {
-    return employees.empty();
+    return employees_.empty();
 }
 
 size_t EmployeeTable::getEntryCount() const {
-    return employees.size();
+    return employees_.size();
 }
