@@ -17,7 +17,7 @@ template <class GenericEmployee> class EmployeeTable {
     // For brevity, we are using only two functions.
 
     // Member function to change the bonus to all employees.
-    void bumpSalaryBonus(const double newBonus) {
+    void bumpSalaryBonus(double newBonus) {
         for (auto &employee : employees) {
             employee->setIncreasedBasicBonus(newBonus);
         }

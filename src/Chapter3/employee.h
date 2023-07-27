@@ -4,50 +4,44 @@
 #include <stdexcept>
 #include <string>
 
-const double extra_bonus = 1000.0;
-const int years_exp_for_extra_bonus = 10;
-
 class Employee {
   private:
-    std::string name;
-    float age;
-    double base_salary; // salary before calculating tax and adjusting bonus.
-    double number_years_employed;
+    std::string name_;
+    unsigned int age_;
+    double baseSalary_; // salary before calculating tax and adjusting bonus.
+    unsigned int numberYearsEmployed_;
 
-    double basic_bonus; // bonus for current year.
-    double net_bonus;   // bonus after adjusting for experience.
+    double basicBonus_; // bonus for current year.
+    double netBonus_;   // bonus after adjusting for experience.
 
-    double tax_amount;
-    double net_salary; // salary after calculating tax and adjusting bonus.
+    double taxAmount_;
+    double netSalary_; // salary after calculating tax and adjusting bonus.
 
   public:
     // Constructor.
-    Employee(const std::string &employee_name, float employee_age, double employeeSalary,
-             double employeeNumberYearsEmployed, double employeeBonus);
+    Employee(const std::string &name, unsigned int age, double baseSalary,
+             unsigned int numberYearsEmployed, double basicBonus);
 
     // Public member functions to set values.
-    void setName(const std::string &employee_name);
-    void setAge(float employee_age);
-    void setBaseSalary(double employeeSalary);
-    void setNumberYearsEmployed(double employeeNumberYearsEmployed);
-    void setBasicBonus(double employeeBonus);
+    void setName(const std::string &name);
+    void setAge(unsigned int age);
+    void setBaseSalary(double baseSalary);
+    void setNumberYearsEmployed(unsigned int numberYearsEmployed);
+    void setBasicBonus(double basicBonus);
 
     void calcNetBonus();  // To calculate net bonus while considering experience.
     void calcTaxAmount(); // To calculate tax to be paid based on salary with bonus
     void calcNetSalary(); // To calculate net salary after adjusting tax and bonus.
 
     // Getter functions.
-    std::string getName() const;
-    float getAge() const;
+    const std::string &getName() const;
+    unsigned int getAge() const;
     double getBasicSalary() const;
-    double getNumberYearsEmployed() const;
+    unsigned int getNumberYearsEmployed() const;
     double getBasicBonus() const;
     double getNetBonus() const;
     double getTaxAmount() const;
     double getNetSalary() const;
 
     void displayInfo() const;
-
-    // Destructor
-    ~Employee();
 };

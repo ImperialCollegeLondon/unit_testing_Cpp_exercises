@@ -2,30 +2,31 @@
 #include <iostream>
 #include <string>
 
-Employee::Employee(const std::string &employee_name, float employee_age, double employeeSalary,
-                   double employeeNumberYearsEmployed, double employeeBonus)
-    : age(employee_age), base_salary(employeeSalary),
-      number_years_employed(employeeNumberYearsEmployed), basic_bonus(employeeBonus), net_bonus(0),
-      tax_amount(0), net_salary(0) {
-    setName(employee_name);
+const double extraBonus = 1000.0;
+const int yearsExpForExtraBonus = 10;
+
+Employee::Employee(const std::string &name, unsigned int age, double baseSalary,
+                   unsigned int numberYearsEmployed, double basicBonus)
+    : name_(name), age_(age), baseSalary_(baseSalary), numberYearsEmployed_(numberYearsEmployed),
+      basicBonus_(basicBonus), netBonus_(0), taxAmount_(0), netSalary_(0) {
     calcNetBonus();
     calcTaxAmount();
     calcNetSalary();
 }
 
-void Employee::setName(const std::string &employee_name) {
-    if (employee_name == "") {
+void Employee::setName(const std::string &name) {
+    if (name.empty()) {
         throw std::invalid_argument("Name cannot be empty");
     }
-    name = employee_name;
+    name_ = name;
 }
 
-void Employee::setAge(float employee_age) {
-    age = employee_age;
+void Employee::setAge(unsigned int age) {
+    age_ = age;
 }
 
-void Employee::setBaseSalary(double employeeSalary) {
-    base_salary = employeeSalary;
+void Employee::setBaseSalary(double baseSalary) {
+    baseSalary_ = baseSalary;
 
     // Calculate new tax based on new base salary
     calcTaxAmount();
@@ -34,8 +35,8 @@ void Employee::setBaseSalary(double employeeSalary) {
     calcNetSalary();
 }
 
-void Employee::setNumberYearsEmployed(double employeeNumberYearsEmployed) {
-    number_years_employed = employeeNumberYearsEmployed;
+void Employee::setNumberYearsEmployed(unsigned int numberYearsEmployed) {
+    numberYearsEmployed_ = numberYearsEmployed;
 
     // Changing number of years employed will change net bonus.
     calcNetBonus();
@@ -47,8 +48,8 @@ void Employee::setNumberYearsEmployed(double employeeNumberYearsEmployed) {
     calcNetSalary();
 }
 
-void Employee::setBasicBonus(double employeeBonus) {
-    basic_bonus = employeeBonus;
+void Employee::setBasicBonus(double basicBonus) {
+    basicBonus_ = basicBonus;
 
     // Changing basic bonus will change net bonus.
     calcNetBonus();
@@ -62,75 +63,71 @@ void Employee::setBasicBonus(double employeeBonus) {
 
 // Employee gets additional £1000 bonus if they have been employed for more than 10 years.
 void Employee::calcNetBonus() {
-    if (number_years_employed > years_exp_for_extra_bonus) {
-        net_bonus = basic_bonus + extra_bonus;
+    if (numberYearsEmployed_ > yearsExpForExtraBonus) {
+        netBonus_ = basicBonus_ + extraBonus;
     } else {
-        net_bonus = basic_bonus;
+        netBonus_ = basicBonus_;
     }
 }
 
 void Employee::calcTaxAmount() {
-    double salary_with_bonus = base_salary + net_bonus;
+    double salary_with_bonus = baseSalary_ + netBonus_;
     if (salary_with_bonus <= 10000) {
-        tax_amount = 0.0;
+        taxAmount_ = 0.0;
     } else if (salary_with_bonus > 10000 && salary_with_bonus <= 20000) {
-        tax_amount = 0.1 * (salary_with_bonus - 10000);
+        taxAmount_ = 0.1 * (salary_with_bonus - 10000);
     } else if (salary_with_bonus > 20000 && salary_with_bonus <= 50000) {
-        tax_amount = 0.1 * 10000 + 0.2 * (salary_with_bonus - 20000);
+        taxAmount_ = 0.1 * 10000 + 0.2 * (salary_with_bonus - 20000);
     } else if (salary_with_bonus > 50000) {
-        tax_amount = 0.1 * 10000 + 0.2 * 30000 + 0.5 * (salary_with_bonus - 50000);
+        taxAmount_ = 0.1 * 10000 + 0.2 * 30000 + 0.5 * (salary_with_bonus - 50000);
     }
 }
 
 void Employee::calcNetSalary() {
-    net_salary = base_salary + net_bonus - tax_amount;
+    netSalary_ = baseSalary_ + netBonus_ - taxAmount_;
 }
 
-std::string Employee::getName() const {
-    return name;
+const std::string &Employee::getName() const {
+    return name_;
 }
 
-float Employee::getAge() const {
-    return age;
+unsigned int Employee::getAge() const {
+    return age_;
 }
 
 double Employee::getBasicSalary() const {
-    return base_salary;
+    return baseSalary_;
 }
 
-double Employee::getNumberYearsEmployed() const {
-    return number_years_employed;
+unsigned int Employee::getNumberYearsEmployed() const {
+    return numberYearsEmployed_;
 }
 
 double Employee::getBasicBonus() const {
-    return basic_bonus;
+    return basicBonus_;
 }
 
 double Employee::getNetBonus() const {
-    return net_bonus;
+    return netBonus_;
 }
 
 double Employee::getTaxAmount() const {
-    return tax_amount;
+    return taxAmount_;
 }
 
 double Employee::getNetSalary() const {
-    return net_salary;
+    return netSalary_;
 }
 
 void Employee::displayInfo() const {
-    std::cout << "Name: " << name << std::endl;
-    std::cout << "Age: " << age << std::endl;
-    std::cout << "Base_Salary: £" << base_salary << std::endl;
-    std::cout << "Number of Years Employed: " << number_years_employed << std::endl;
+    std::cout << "Name: " << name_ << std::endl;
+    std::cout << "Age: " << age_ << std::endl;
+    std::cout << "Base_Salary: £" << baseSalary_ << std::endl;
+    std::cout << "Number of Years Employed: " << numberYearsEmployed_ << std::endl;
 
-    std::cout << "Basic_Bonus: £" << basic_bonus << std::endl;
-    std::cout << "Net_Bonus: £" << net_bonus << std::endl;
+    std::cout << "Basic_Bonus: £" << basicBonus_ << std::endl;
+    std::cout << "Net_Bonus: £" << netBonus_ << std::endl;
 
-    std::cout << "Tax to be paid: £" << tax_amount << std::endl;
-    std::cout << "Net_Salary: £" << net_salary << std::endl;
-}
-
-// Destructor
-Employee::~Employee() {
+    std::cout << "Tax to be paid: £" << taxAmount_ << std::endl;
+    std::cout << "Net_Salary: £" << netSalary_ << std::endl;
 }

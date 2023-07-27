@@ -9,10 +9,10 @@ class EmployeeTestFixture : public ::testing::Test {
 
 // Test net bonus works fine for different number of years.
 TEST_F(EmployeeTestFixture, NetBonusIsCorrectForDifferentYears) {
-    auto input = std::vector<int>{5, 15};
-    auto expected_output = std::vector<int>{2000, 3000};
+    auto input = std::vector<unsigned int>{5, 15};
+    auto expected_output = std::vector<double>{2000, 3000};
     for (size_t i = 0; i < input.size(); i++) {
         employee.setNumberYearsEmployed(input[i]);
-        EXPECT_EQ(employee.getNetBonus(), expected_output[i]);
+        EXPECT_DOUBLE_EQ(employee.getNetBonus(), expected_output[i]);
     }
 }
