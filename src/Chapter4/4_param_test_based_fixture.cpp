@@ -43,10 +43,10 @@ class EmployeeTestParameterisedFixture : public EmployeeTestFixture,
                                          public testing::WithParamInterface<TestValues> {};
 
 // Create an array of values (of type TestValues) to be injected into the test.
-TestValues values[] = {
-    // value are in format: salary, basic_bonus, years_employed, tax
-    TestValues{8000, 2000, 3, 0}, TestValues{8000, 2000, 11, 100}, TestValues{15000, 3000, 4, 800},
-    TestValues{26000, 4000, 12, 3200}, TestValues{60000, 8000, 13, 16500}};
+TestValues values[] = {// value are in format: salary, basic_bonus, years_employed, tax
+                       TestValues{8000, 2000, 3, 0}, TestValues{8000, 2000, 11, 100},
+                       TestValues{15000, 3000, 4, 800}, TestValues{26000, 4000, 12, 3200},
+                       TestValues{60000, 8000, 13, 16500}};
 
 // Test that the tax calculation is correct.
 TEST_P(EmployeeTestParameterisedFixture, TaxCalculationIsCorrect) {
